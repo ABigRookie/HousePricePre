@@ -32,7 +32,7 @@ def GetLatLongAndNum():
         HouseDetail = HouseSource.HouseDetail
         for item in CommunityNearPOI.find():
             name = item['小区名称']
-            url = 'https://restapi.amap.com/v3/place/text?keywords=' + str(name) +'&city=beijing&key=70cfe8605882530d550644f927ab4257'
+            url = 'https://restapi.amap.com/v3/place/text?keywords=' + str(name) +'&city=beijing&key='
             msg = GetHtmlText(url)
             #print(msg)
             Community_Num = re.findall('"count":"(.*?)",', msg)[0]
