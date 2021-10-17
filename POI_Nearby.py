@@ -47,7 +47,7 @@ def CreateCommunityDB():
 #首先获取小区的经纬度
 def GetLatLong(name):
     try:
-        url = 'https://restapi.amap.com/v3/place/text?keywords=' + str(name) +'&city=beijing&key=70cfe8605882530d550644f927ab4257'
+        url = 'https://restapi.amap.com/v3/place/text?keywords=' + str(name) +'&city=beijing&key='
         msg = GetHtmlText(url)
         #print(msg)
         Community_Num = re.findall('"count":"(.*?)",', msg)[0]
@@ -89,7 +89,7 @@ def GetPOINearby():
                         #print(CommunityNearPOI.find({'小区名称':name,TypesKey[num]:None}).count())
                         #在这里需要设计断点续传，使得程序在中断后仍能直接从中断点继续，而不用从头开始。
                         if CommunityNearPOI.find({'小区名称':name,TypesKey[num]:None}).count() != 0:
-                            url = 'https://restapi.amap.com/v3/place/around?key=70cfe8605882530d550644f927ab4257&location=' + str(LatLong) + '&radius=2000&types=' + str(types[num])
+                            url = 'https://restapi.amap.com/v3/place/around?key=&location=' + str(LatLong) + '&radius=2000&types=' + str(types[num])
                             #print(url)
                             POI_Msg = GetHtmlText(url)
                             POI_Num = re.findall('"count":"(.*?)",',POI_Msg)[0]
